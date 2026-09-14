@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('mounts', function (Blueprint $table) {
             $table->id();
-            $table->foreingId('server_id')->constrained('servers')->cascadeOnDelete();
+            $table->foreignId('server_id')->constrained('servers')->cascadeOnDelete();
             $table->string('path');
             $table->timestamps();
         });

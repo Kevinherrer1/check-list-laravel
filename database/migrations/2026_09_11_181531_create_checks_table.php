@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('checks', function (Blueprint $table) {
             $table->id();
-            $table->foreingId('review_id')->constrained(reviews)->cascadeOnDelete();
-            $table->foreingId('mount_id')->constrained(mounts)->cascadeOnDelete();
+            $table->foreignId('review_id')->constrained('reviews')->cascadeOnDelete();
+            $table->foreignId('server_id')->constrained('servers')->cascadeOnDelete();
 
             
-            $table->boolean('powered_on')->default('pending');
+            $table->string('powered_on')->default('pending');
             $table->string('mounts_status')->default('pending');
             $table->json('mounts_details')->nullable();
             $table->string('backup')->default('pending');
@@ -28,11 +28,11 @@ return new class extends Migration
             $table->string('notified')->default('');
             $table->string('channel')->default('');
             $table->string('observations')->nullable();
-            $table->string('review_result')->default();
+            $table->string('review_result')->default('');
             $table->string('reviewed_by')->default('');
 
 
-            $table->unique([review_id, server_id, mount_id]);
+            $table->unique(['review_id', 'server_id']);
             $table->timestamps();
         });
     }

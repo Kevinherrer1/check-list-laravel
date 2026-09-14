@@ -24,7 +24,7 @@ return new class extends Migration
             $table->text('observations')->nullable();
             $table->string('review_script')->default('');
             $table->boolean('active')->default(true);
-            $table->interger('sort_order')->default(0);
+            $table->integer('sort_order')->default(0);
             $table->string('netapp_volume')->default('');
             $table->string('nfs_root')->default('');
             $table->string('nfs_slug')->default('');
