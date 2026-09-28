@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->date('date')->unique();
-            $table->string('responsible')->default('YM');
+            $table->string('responsible')->default('');
             $table->text('notes')->nullable();
             $table->boolean('closed')->default(false);
             $table->timestamps();
